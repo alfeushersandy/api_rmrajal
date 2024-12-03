@@ -1,18 +1,18 @@
 def convert_pass(password, c_status):
-    c = ord('}')  # ASCII value of '}'
+    c = ord('}')  
     text = ""
 
     for char in password:
         if c_status == "E":  # Encryption
-            num = ord(char)  # Get ASCII value of the character
-            value2 = num + c  # Increase by ASCII value of '}'
-            text2 = chr(value2)  # Convert back to character
-        elif c_status == "D":  # Decryption
+            num = ord(char)  
+            value2 = num + c  
+            text2 = chr(value2)  
+        elif c_status == "D":  
             num = ord(char)
-            value2 = num - c  # Decrease by ASCII value of '}'
+            value2 = num - c  
             # Check if value2 is within the valid range
             if 0 <= value2 <= 255:
-                text2 = chr(value2)  # Convert back to character
+                text2 = chr(value2)  
             else:
                 text2 = char  # If out of range, keep the original character
 
