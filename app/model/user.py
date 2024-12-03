@@ -15,6 +15,15 @@ class UserModel():
             query = select(self.user)
             result = connection.execute(query)
             return result.fetchall()
+    
+    def get_user(self, username):
+        with self.engine.connect() as connection:
+            query = select(self.user).where(self.user.c.vc_username == username)
+            result = connection.execute(query).mappings()
+            return result.fetchone()
+
+
+
         
         
             

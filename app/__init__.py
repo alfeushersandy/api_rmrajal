@@ -2,10 +2,13 @@ import os
 from flask import Flask, request
 from app.config.database import Database
 from app.routes.user_routes import user_bp
+from flask_cors import CORS
 
 
 def create_app():
     app = Flask(__name__)
+
+    # CORS(app)
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
     # konfigurasi database 
