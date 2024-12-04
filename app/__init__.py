@@ -12,7 +12,7 @@ def create_app():
     CORS(app)
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
     # Konfigurasi JWT
-    app.config['JWT_SECRET_KEY'] = '6a5cdea88eb45d863620bfa73b6ef87039cc2fe845085a7a20cf6a5dcf0e11785711fee83927eae023ec37e4b0d41b471397c6b1b5138a2ece65e27d78f866d6'  # Ganti dengan kunci rahasia yang kuat
+    app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET')  # Ganti dengan kunci rahasia yang kuat
     jwt = JWTManager(app)
 
     @jwt.unauthorized_loader
